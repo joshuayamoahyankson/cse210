@@ -1,3 +1,8 @@
+#Author name: Joshua Yamoah Yankson
+#Assignment name : Solo Code Submission( Tic-Tac-Toe)
+
+# This part(main) of the code calls all other functions created and also contains the while loop that causes--
+# the program to run until the while loop becomes false.
 def main():
     board = create_board()
     variable = True
@@ -15,15 +20,15 @@ def main():
         player = change_player(player)
     display_board(board)
         
-# Create Board
+# This function block Creates the game board.
 def create_board():
     board = []
     for i in range(9):
         board.append(i + 1)
     return board
-print(create_board())        
-# Display board
-
+print(create_board())  
+      
+# The board display takes place here inside this function
 def display_board(board):
     print(board[0], "|" , board[1], "|" , board[2])
     print ("----------")
@@ -32,14 +37,14 @@ def display_board(board):
     print(board[6], "|" , board[7], "|" , board[8])
 
 
-# Make Move
+# The player makes a move in this block of code.
 def make_move(board, player_symbol):
     
     input_condition = int(input(f"{player_symbol}'s turn Enter a Number between 1 - 9: "))
     board[input_condition - 1] = player_symbol
     
     
-#Check winner
+#The check_sequence function checks to see who wins per the game rules.
 def check_sequence(board):
   
     return (board[0] == board[1] == board[2] or
@@ -51,20 +56,21 @@ def check_sequence(board):
             board[0] == board[4] == board[8] or
             board[2] == board[4] == board[6])
        
-# Check draw
+# This code checks whether there be a draw or not.
 def check_draw(board):
     for i in range(9):
         if board[i] != "x" and board[i] != "o":
             return False
     return True
-# Switch
+
+# Switches in players turn happens here in the change_player function.
 def change_player(symbol):
     if symbol == "o" or "":
         symbol = "x"
     elif symbol == "x":
         symbol = "o"
     return symbol
-# Make Move
 
+# This is a call to the main function.
 if __name__ == '__main__':
     main()
